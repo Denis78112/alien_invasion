@@ -14,11 +14,14 @@ class Ship():
         self.rect.midbottom = self.screen_rect.midbottom
         #Флаг перемещения
         self.moving_right = False
+        self.moving_left = False
 
     def update(self):
         """Обновляет позицию коробля с учетом флага"""
         if self.moving_right:
             self.rect.x += 1
+        if self.moving_left:
+            self.rect.x -= 1
 
     def blitme(self):
         """рисует корабль в текущей позиции"""
