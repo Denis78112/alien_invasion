@@ -11,7 +11,7 @@ class AlienInvasion:
         self.settings = Settings()
         
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        self.settings.screen_widht = self.screen.get_rect().width
+        self. settings.screen_widht = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Alien Invasion")
 
@@ -29,16 +29,18 @@ class AlienInvasion:
 
             #при каждом проходе цикла перерисовывается экран
             self.screen.fill(self.settings.bg_color)
+
+
     def _check_events(self):
         """Отрабатывает нажатия клавиш и события мыши"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                self._check_keydown_evets(event)
+                self._check_keydown_events(event)
                                 
             elif event.type == pygame.KEYUP:
-                self._chec_keyup_events(event)
+                self._check_keyup_events(event)
 
     def _check_keydown_events(self, event):
         """Реагирует на нажатие клавиш."""
@@ -48,6 +50,7 @@ class AlienInvasion:
             self.ship.moving_left = True
         elif event.key == pygame.K_q:
             sys.exit()
+        
 
     def _check_keyup_events(self, event):
         """Реагирует на отпускание клавиш."""
