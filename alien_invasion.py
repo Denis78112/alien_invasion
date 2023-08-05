@@ -16,6 +16,7 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
 
     def run_game(self):
@@ -25,6 +26,7 @@ class AlienInvasion:
             
             self._check_events()
             self.ship.update()
+            self.bullets.update()
             self._update_screen()
 
             #при каждом проходе цикла перерисовывается экран

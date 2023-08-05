@@ -15,4 +15,15 @@ class Bullet(Sprite):
 
         #Позици снаряда хранится в вещественном формате.
         self.y = float(self.rect.y)
+
+    def update(self):
+        """Перемещает снаряд вверх по экрану"""
+        #Обновляет позиции снаряда в вещекственном формате
+        self.y -= self.settings.bullet_speed
+        #обновление позиции прямоугольника.
+        self.rect.y = self.y
+
+    def draw_bullet(self):
+        """вывод снряда на экран"""
+        pygame.draw.rect(self.screen, self.color, self.rect)
         
