@@ -99,11 +99,16 @@ class AlienInvasion:
         
         #Создание первого ряда пришельцев
         for alien_number in range(number_aliens_x):
-            #Создание первого ряда пришельцев
-            alien = Alien(self)
-            alien.x = alien_width + 2 * alien_width * alien_number
-            alien.rect.x = alien.x
-            self.aliens.add(alien)
+            self._create_alien(alien_number)
+
+    def _create_alien(self, alien_number):
+        """Создание пришельца и размещение его в ряду"""
+        #Создание первого ряда пришельцев
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        self.aliens.add(alien)
       
 
     def _update_screen(self):
