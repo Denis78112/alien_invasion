@@ -110,7 +110,7 @@ class AlienInvasion:
 
     def _ship_hit(self):
         """Обрабатывает столконовения коробля с пришельцами"""
-        if stats.ship_left > 0:
+        if self.stats.ship_left > 0:
 
             #уменьшает ship_left
             self.stats.ship_left -= 1
