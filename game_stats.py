@@ -5,7 +5,10 @@ class GameStats():
         self.settings = ai_game.settings
         self.reset_stats()
 
+        #игра запускается в активном состоянии.
+        self.game_active = True
+        
+
     def reset_stats(self):
         """инициализирует статистику изменяющуюся в ходе игры"""
         self.ship_left = self.settings.ship_limit
-        
