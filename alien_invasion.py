@@ -84,6 +84,9 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
 
+            #Указатель мыши скрывается.
+            pygame.mouse.set_visible(False)
+
 
 
 
@@ -157,6 +160,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.stats.game_active = False
+            pygame.mouse.set_visible(True)
 
 
 
