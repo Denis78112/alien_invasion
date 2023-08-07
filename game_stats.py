@@ -8,6 +8,9 @@ class GameStats():
         #игра запускается в активном состоянии.
         self.game_active = False
 
+        #Рекорд не должен сбрасываться.
+        self.high_score = 0
+
 
     def reset_stats(self):
         """инициализирует статистику изменяющуюся в ходе игры"""

@@ -79,6 +79,7 @@ class AlienInvasion:
             self.settings.initialize_dynamic_settings()
             self.stats.reset_stats()
             self.stats.game_active = True
+            self.sb.prep_score()
 
             #Очистка списков пришельцев и снарядов.
             self.aliens.empty()
@@ -191,7 +192,11 @@ class AlienInvasion:
 
         #При проверке попаданий пришельцев.
         #При обнурежении попадания удалить снаряд и пришельца.
-        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
+        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        if collisions:
+            for aliens in collisions.values():
+                self.stats.score += self.settings.alien_points * len(aliens)
+            self.sb.prep_score()
 
     def _create_fleet(self):
         """Создание флота вторжения"""
