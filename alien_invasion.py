@@ -1,6 +1,7 @@
 import sys
 from time import sleep
 from game_stats import GameStats
+from scoreboard import Scoreboard
 from button import Button
 import pygame
 from settings import Settings
@@ -21,8 +22,10 @@ class AlienInvasion:
         self.settings.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Alien Invasion")
 
+        #Экземпряр для хранения статистики
         #Создание экземпляра класса для хранения игровой статистики.
         self.stats = GameStats(self)
+        self.sb = Scoreboard(self)
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
@@ -245,6 +248,7 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
+        self.sb.show_score()
 
         #Кнопка Play отображается в том случае, если игра не активна
         if not self.stats.game_active:
